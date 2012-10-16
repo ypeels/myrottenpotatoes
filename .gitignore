@@ -4,3 +4,10 @@ log/*.log
 tmp/
 .sass-cache/
 *~
+README
+doc
+lib
+public
+script
+vendor
+config.ru
