@@ -6,8 +6,6 @@ tmp/
 *~
 README
 doc
-lib
 public
-script
 vendor
 config.ru
