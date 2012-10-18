@@ -15,6 +15,11 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+    when /^the RottenPotatoes home page$/i
+      #'/' # hmm , this only fails the FINAL test, not all of them...
+      '/movies'
+    when /^the Create New Movie page$/i
+      '/movies/new'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

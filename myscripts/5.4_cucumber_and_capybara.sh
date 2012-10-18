@@ -32,4 +32,9 @@ echo
 echo Now performing steps from Screencast 5.4.1
 bundle exec cucumber
 
+
+echo
+echo Now edit features/support/paths.rb to pass Cucumber tests...
+rake routes
+gedit features/support/paths.rb &
 popd
