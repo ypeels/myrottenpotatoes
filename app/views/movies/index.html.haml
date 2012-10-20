@@ -23,3 +23,15 @@
     -# Section 4.6
     -# http://pastebin.com/6wLiit6M
     = link_to 'Add new movie', new_movie_path
+
+
+-# Section 5.6 Figure 5.7
+-# http://pastebin.com/viZTPxGN
+-# add to end of app/views/movies/index.html.haml:
+%h1 Search TMDb for a movie
+
+= form_tag :action => 'search_tmdb' do
+
+  %label{:for => 'search_terms'} Search Terms
+  =text_field_tag 'search_terms'
+  =submit_tag 'Search TMDb'

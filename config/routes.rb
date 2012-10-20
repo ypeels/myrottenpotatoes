@@ -1,5 +1,11 @@
 Myrottenpotatoes::Application.routes.draw do
 
+  # Section 5.6 Figure 5.8 (bottom)
+  # http://pastebin.com/tCHwFER8
+  # add to routes.rb, just before or just after 'resources :movies' :
+  # Route that posts 'Search TMDb' form
+  post '/movies/search_tmdb'
+
   # Section 4.1
   # http://pastebin.com/piLDY4eM
   resources :movies
@@ -48,7 +54,7 @@ Myrottenpotatoes::Application.routes.draw do
   # Sample resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
+  #     # (app/controllers/admin/productshttp://pastebin.com/tCHwFER8_controller.rb)
   #     resources :products
   #   end
 
