@@ -48,6 +48,18 @@ group :test, :development do
   gem 'database_cleaner' # to clear Cucumber's test database between runs
   gem 'capybara'         # lets Cucumber pretend to be a web browser
   gem 'launchy'          # a useful debugging aid for user stories
+  
+  # Section 6.2 paragraph after Figure 6.2
+  gem 'rspec-rails'
+
+  # Screencast 6.2.1
+  gem 'ZenTest'
+
 end
+
+# Section 6.1: run bundle install --without production after updating
+# actually, it's included in the bookware? meh
+gem 'ruby-tmdb'
+
 
 
