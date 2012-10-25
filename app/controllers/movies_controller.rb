@@ -57,9 +57,12 @@ class MoviesController < ApplicationController
   # Section 5.6 Figure 5.8 (top)
   # http://pastebin.com/yVNvBKNe
   def search_tmdb
+  
+    # Screencast 6.3.1: comment original body out, to match screencast ~3:00
     # # hardwire to simulate failure
     # flash[:warning] = "'#{params[:search_terms]}' was not found in TMDb."
     # redirect_to movies_path
+    
   end
   
 end
