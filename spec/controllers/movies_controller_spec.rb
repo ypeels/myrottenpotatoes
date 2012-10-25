@@ -13,7 +13,11 @@ describe MoviesController do
     it 'should call the model method that performs TMDb search' do
 
       # Screencast 6.2.1
-      pending 'choose a name for the model method'
+      # pending 'choose a name for the model method'
+
+      # Section 6.3 Figure 6.4
+      # http://pastebin.com/cd4pVa0a
+      post :search_tmdb, {:search_terms => 'hardware'}
 
     end
 
