@@ -10,3 +10,4 @@ public
 vendor
 config.ru
 bin
+config/myconfig.yml

@@ -25,6 +25,7 @@ describe Movie do
   describe 'searching Tmdb by keyword' do
 
     # string revised in Section 6.6 Figure 6.13
+    # http://pastebin.com/TJXJk5wQ
     # it 'should call Tmdb with title keywords' do
     it 'should call Tmdb with title keywords given valid API key' do
     
@@ -34,9 +35,15 @@ describe Movie do
       
     end
 
-    # Section 6.6 Figure 6.13
+    # Section 6.6 Figure 6.13    
     it 'should raise an InvalidKeyError with no API key' do
+    
+      # Section 6.7 Figure 6.16
+      # http://pastebin.com/RRKJDpbn
+      Movie.stub(:api_key).and_return('') 
+     
       lambda { Movie.find_in_tmdb('Inception') }.should raise_error(Movie::InvalidKeyError)
+    
     end
   
   end
