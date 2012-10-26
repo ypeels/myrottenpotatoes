@@ -54,6 +54,9 @@ group :test, :development do
 
   # Screencast 6.2.1
   gem 'ZenTest'
+  
+  # Section 6.5 Figure 6.11 caption
+  gem 'factory_girl_rails'
 
 end
 
