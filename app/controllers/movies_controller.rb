@@ -39,8 +39,7 @@ class MoviesController < ApplicationController
   end  
   def update
     @movie = Movie.find params[:id]
-	debugger
-    @movie.update_attributes!(params[:movie])
+	  @movie.update_attributes!(params[:movie])
     flash[:notice] = "#{@movie.title} was successfully updated."
     redirect_to movie_path(@movie)
   end
@@ -62,6 +61,11 @@ class MoviesController < ApplicationController
     # # hardwire to simulate failure
     # flash[:warning] = "'#{params[:search_terms]}' was not found in TMDb."
     # redirect_to movies_path
+
+    # Section 6.3 last words
+    # http://pastebin.com/MDsSSwU1
+    # also, http://pastebin.com/5uacfzyZ
+    @movies = Movie.find_in_tmdb(params[:search_terms])
     
   end
   

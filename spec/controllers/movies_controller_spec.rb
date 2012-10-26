@@ -15,6 +15,11 @@ describe MoviesController do
       # Screencast 6.2.1
       # pending 'choose a name for the model method'
 
+      # Section 6.3 Figure 6.5
+      # http://pastebin.com/vDRTDrkw
+      fake_results = [mock('movie1'), mock('movie2')]
+      Movie.should_receive(:find_in_tmdb).with('hardware').and_return(fake_results)
+
       # Section 6.3 Figure 6.4
       # http://pastebin.com/cd4pVa0a
       post :search_tmdb, {:search_terms => 'hardware'}
