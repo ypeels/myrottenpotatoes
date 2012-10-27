@@ -16,4 +16,22 @@ echo "# Section 6.7 Figure 6.16"
 echo http://pastebin.com/RRKJDpbn
 gedit spec/models/movie_spec.rb
 
+echo
+echo The final spec - test for nonblank but invalid key
+echo "# Section 6.7 Figure 6.17"
+echo http://pastebin.com/dgSHRKYk
+gedit spec/models/movie_spec.rb
+
+echo
+echo Fix model to handle new exception type
+echo "# Section 6.7 Figure 6.18"
+echo http://pastebin.com/1C08dxAu
+gedit app/models/movie.rb
+
+echo 
+echo Finally, stub the Internet!
+echo "# Section 6.7 Figure 6.19"
+echo http://pastebin.com/aMnxZz5E
+gedit spec/models/movie_spec.rb
+
 popd

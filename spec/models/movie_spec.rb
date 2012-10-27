@@ -35,8 +35,9 @@ describe Movie do
       
     end
 
-    # Section 6.6 Figure 6.13    
-    it 'should raise an InvalidKeyError with no API key' do
+    # Section 6.6 Figure 6.13   
+    # http://pastebin.com/TJXJk5wQ    
+    it 'should raise an InvalidKeyError with no (blank) API key' do
     
       # Section 6.7 Figure 6.16
       # http://pastebin.com/RRKJDpbn
@@ -44,6 +45,19 @@ describe Movie do
      
       lambda { Movie.find_in_tmdb('Inception') }.should raise_error(Movie::InvalidKeyError)
     
+    end
+    
+    # Section 6.7 Figure 6.17
+    # http://pastebin.com/dgSHRKYk
+    it 'should raise an InvalidKeyError with invalid API key' do
+      
+      # Section 6.7 Figure 6.19
+      # http://pastebin.com/aMnxZz5E
+      #Movie.stub(:api_key).and_return('INVALID')
+      TmdbMovie.stub(:find).and_raise(RuntimeError.new("stub API returned status code '404'"))
+      
+      lambda { Movie.find_in_tmdb('Inception') }.should raise_error(Movie::InvalidKeyError)
+      
     end
   
   end
