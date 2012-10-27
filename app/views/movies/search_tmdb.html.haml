@@ -1,0 +1,25 @@
+-# After all that nonsense in Chapter 6, the end result isn't deployable!>=?
+-# still can't beat human testing for final acceptance...
+-# I wrote the following stuff myself
+-# maybe this is the subject of the homework? meh I'd like to bring this puppy home first...
+-# I did NOT write this or the corresponding model/controller code using test-driven methodology
+-# I did this before the homework, after all...
+
+%h2 Search Results
+
+-# just slap down an abbreviated version of index.html.haml
+-# with fields adjusted to TMDb's output, ascertained via rails debugger
+%table#movies
+  %thead
+    %tr
+      %th Movie Title
+      %th Rating
+      %th Release Date
+  %tbody
+    - @movies.each do |movie|
+      %tr
+        %td= movie.name 
+        %td= movie.certification
+        %td= movie.released
+		
+= link_to 'Back to main page', movies_path

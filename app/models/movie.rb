@@ -22,7 +22,8 @@ class Movie < ActiveRecord::Base
 
     # Section 6.6 Figure 6.14 cont. - wrap function call with exception handling
     begin
-      TmdbMovie.find(:title => string) # from Section 6.6 Figure 6.12 (bottom)
+      #TmdbMovie.find(:title => string) # from Section 6.6 Figure 6.12 (bottom)
+      TmdbMovie.find(:title => string, :expand_results => false) # my personal addition
     rescue ArgumentError => tmdb_error
       raise Movie::InvalidKeyError, tmdb_error.message
     rescue RuntimeError => tmdb_error # Section 6.7 Figure 6.18 - http://pastebin.com/1C08dxAu
