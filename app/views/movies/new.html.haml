@@ -5,13 +5,16 @@
 
 = form_tag movies_path, :method => :post do
 
-  = label :movie, :title, 'Title'
-  = text_field :movie, :title
-
-  = label :movie, :rating, 'Rating'
-  = select :movie, :rating, ['G','PG','PG-13','R','NC-17']
- 
-  = label :movie, :release_date, 'Released On'
-  = date_select :movie, :release_date, :start_year => 1977
+  -# Section 7.1 Figure 7.1 (middle)
+  -# http://pastebin.com/ZNKAws0T
+  -#= label :movie, :title, 'Title'
+  -#= text_field :movie, :title
+  -#
+  -#= label :movie, :rating, 'Rating'
+  -#= select :movie, :rating, ['G','PG','PG-13','R','NC-17']
+  -#
+  -#= label :movie, :release_date, 'Released On'
+  -#= date_select :movie, :release_date, :start_year => 1977
+  render :partial => 'movie_form'
 
   = submit_tag 'Save Changes'

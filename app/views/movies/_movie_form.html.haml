@@ -1,0 +1,17 @@
+-# Section 7.1 Figure 7.1 (top)
+-# http://pastebin.com/G1c32mQW
+
+-# in _movie_form.html.haml (the partial)
+
+-# the default value @movie.title is actually new
+= label :movie, :title, 'Title'
+= text_field :movie, 'title', @movie.title
+
+-# the default value @movie.rating is actually new
+= label :movie, :rating, 'Rating'
+= select :movie, :rating, ['G','PG','PG-13','R','NC-17'], @movie.rating
+
+-# the default value @movie.release_date is actually new
+-# note that they removed the :start_year => 1977
+= label :movie, :release_date, 'Released On'
+= date_select :movie, :release_date, @movie.release_date
