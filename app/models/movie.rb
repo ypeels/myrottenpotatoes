@@ -35,7 +35,39 @@ class Movie < ActiveRecord::Base
     end
 
   end
+  
+  
+  # Section 7.1 Figure 7.3
+  # http://pastebin.com/2GtWshSb
+  # these validations will be triggered by Movie#valid?() (called when saving to db)
+  RATINGS = %w[G PG PG-13 R NC-17]  #  %w[] shortcut for array of strings
+  
+  # pre-defined validation behaviors in ActiveModel::Validations::ClassMethods
+  validates :title, :presence => true
+  validates :release_date, :presence => true
+  
+  validate :released_1930_or_later # uses custom validator below
+  validates :rating, :inclusion => {:in => RATINGS}, :unless => :grandfathered?
+  def released_1930_or_later
+    # release_date presence was also validated above, lest it be nil
+    errors.add(:release_date, 'must be 1930 or later') if
+      self.release_date < Date.parse('1 Jan 1930')
+  end
+  
+  def grandfathered? 
+    #self.release_date >= @@grandfathered_date 
+    self.release_date <= @@grandfathered_date # from erratum list
+  end  
+  @@grandfathered_date = Date.parse('1 November 1968') # from erratum list
 
+  # # try in console:
+  # m = Movie.new(:title => '', :rating => 'RG', :release_date => '1929-01-01')
+  # # force validation checks to be performed:
+  # m.valid?  # => false
+  # m.errors[:title] # => ["can't be blank"]
+  # m.errors[:rating] # => ["is not included in the list"]
+  # m.errors[:release_date] # => ["must be 1930 or later"]
+  # m.errors.full_messages # => ["Title can't be blank", "Rating is not included in the list", "Release date must be 1930 or later"]
 
 
 end
