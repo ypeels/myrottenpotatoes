@@ -1,6 +1,9 @@
 -# Section 7.1 after Figure 7.4
 -# http://pastebin.com/YGqvV8pg
-- unless @movie.errors.empty?
+
+-# erratum? yes.
+-#- unless @movie.errors.empty? 
+- unless @movie == nil || @movie.errors.empty? 
   #warning
     Errors prevented this movie from being #{controller.action_name}d:
     %ul
@@ -12,15 +15,15 @@
 
 -# in _movie_form.html.haml (the partial)
 
--# the default value @movie.title is actually new
+-# erratum found by me: @movie.title causes TypeError
 = label :movie, :title, 'Title'
-= text_field :movie, 'title', @movie.title
+= text_field :movie, 'title'
 
--# the default value @movie.rating is actually new
+-# erratum found by me: @movie.rating causes TypeError
 = label :movie, :rating, 'Rating'
-= select :movie, :rating, ['G','PG','PG-13','R','NC-17'], @movie.rating
+= select :movie, :rating, ['G','PG','PG-13','R','NC-17']
 
--# the default value @movie.release_date is actually new
+-# erratum found by me: @movie.release_date causes NoMethodError
 -# note that they removed the :start_year => 1977
 = label :movie, :release_date, 'Released On'
-= date_select :movie, :release_date, @movie.release_date
+= date_select :movie, :release_date
