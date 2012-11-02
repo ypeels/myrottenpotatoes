@@ -11,14 +11,17 @@
       %th Release Date
       %th More Info
   %tbody
-    - @movies.each do |movie|
-      %tr
-        %td= movie.title 
-        %td= movie.rating
-        %td= movie.release_date
-        %td= link_to "More about #{movie.title}", movie_path(movie)
-        %td= link_to "Edit", edit_movie_path(movie)
-        %td= button_to "Delete", movie_path(movie), :method => :delete, :confirm => 'Are you sure?'
+    -# Section 7.1 Figure 7.2 caption - DRY into partial
+    -#- @movies.each do |movie|
+    -#  %tr
+    -#    %td= movie.title 
+    -#    %td= movie.rating
+    -#    %td= movie.release_date
+    -#    %td= link_to "More about #{movie.title}", movie_path(movie)
+    -#    -# Section 4,8
+    -#    %td= link_to "Edit", edit_movie_path(movie)
+    -#    %td= button_to "Delete", movie_path(movie), :method => :delete, :confirm => 'Are you sure?'
+    render :partial => 'movie', :collection => @movies
 
     -# Section 4.6
     -# http://pastebin.com/6wLiit6M

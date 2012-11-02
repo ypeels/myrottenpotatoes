@@ -17,6 +17,17 @@ echo
 echo DRY out app/views/movies/edit.html.haml
 echo "-# Section 7.1 Figure 7.1 (bottom)"
 echo "-# http://pastebin.com/pRWLLbNk"
-gedit app/views/movies.edit.html.haml
+gedit app/views/movies/edit.html.haml
+
+echo
+echo Movie table row partial app/views/movies/_movie.html.haml
+echo "-# Section 7.2 Figure 7.2"
+echo "-# http://pastebin.com/4CLiWA2t"
+gedit app/views/movies/_movie.html.haml
+
+echo
+echo DRY out app/views/movies/index.html.haml
+echo "-# Section 7.2 Figure 7.2 caption"
+gedit app/views/movies/index.html.haml
 
 popd

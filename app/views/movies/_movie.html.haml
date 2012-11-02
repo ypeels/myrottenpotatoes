@@ -1,0 +1,13 @@
+-# Section 7.1 Figure 7.2
+-# http://pastebin.com/4CLiWA2t
+
+-# A single row of the All Movies table
+%tr
+  %td= movie.title 
+  %td= movie.rating
+  %td= movie.release_date
+  %td= link_to "More about #{movie.title}", movie_path(movie)
+  
+  -# stuff from Section 4.8 they forgot? (not on Pastebin)
+  %td= link_to "Edit", edit_movie_path(movie)
+  %td= button_to "Delete", movie_path(movie), :method => :delete, :confirm => 'Are you sure?'
