@@ -48,4 +48,22 @@ echo "# Section 7.1 after Figure 7.4"
 echo "# http://pastebin.com/YGqvV8pg"
 gedit app/views/movies/_movie_form.html.haml
 
+echo
+echo Screencast 7.1.1 - div.field_with_errors
+gedit app/assets/stylesheets/application.css
+
+echo
+echo Active Record lifecycle callback - app/models/movie.rb
+echo "# Section 7.1 Figure 7.6"
+echo "# http://pastebin.com/w4c1nm1q"
+gedit app/models/movie.rb
+
+echo
+echo My first controller filter - app/controllers/application_controller.rb
+echo "# Section 7.1 Figure 7.7"
+echo "# http://pastebin.com/MHuGdTUT"
+gedit app/controllers/application_controller.rb
+
+
+
 popd

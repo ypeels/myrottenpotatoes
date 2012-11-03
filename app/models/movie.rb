@@ -60,7 +60,7 @@ class Movie < ActiveRecord::Base
   end  
   @@grandfathered_date = Date.parse('1 November 1968') # from erratum list
 
-  # # try in console:
+  # # try in console: [rails console]
   # m = Movie.new(:title => '', :rating => 'RG', :release_date => '1929-01-01')
   # # force validation checks to be performed:
   # m.valid?  # => false
@@ -68,6 +68,17 @@ class Movie < ActiveRecord::Base
   # m.errors[:rating] # => ["is not included in the list"]
   # m.errors[:release_date] # => ["must be 1930 or later"]
   # m.errors.full_messages # => ["Title can't be blank", "Rating is not included in the list", "Release date must be 1930 or later"]
+
+  # Section 7.1 Figure 7.6
+  # http://pastebin.com/w4c1nm1q
+  before_save :capitalize_title
+  def capitalize_title
+    self.title = self.title.split(/\s+/).map(&:downcase).
+      map(&:capitalize).join(' ')
+  end
+  # # now try in console: [rails console]
+  # m = Movie.create!(:title => 'STAR  wars', :release_date => '27-5-1977')
+  # m.title  # => "Star Wars"
 
 
 end
