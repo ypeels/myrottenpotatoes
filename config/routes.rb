@@ -11,6 +11,11 @@ Myrottenpotatoes::Application.routes.draw do
   resources :movies
   root :to => redirect('/movies')
 
+  # Section 7.2 Figure 7.10(a)
+  # http://pastebin.com/pBuULmVY
+  match 'auth/:provider/callback' => 'sessions#create',:as => 'login'
+  match 'logout' => 'sessions#destroy'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
