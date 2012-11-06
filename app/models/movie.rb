@@ -1,5 +1,9 @@
 class Movie < ActiveRecord::Base
 
+  # Section 7.3 Figure 7.14(c)
+  # http://pastebin.com/WHuX2LcV
+  has_many :reviews
+
   # Section 6.6 Figure 6.14
   # http://pastebin.com/5LhUz8uV
   class Movie::InvalidKeyError < StandardError; end

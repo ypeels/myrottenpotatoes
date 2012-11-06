@@ -4,7 +4,7 @@ class Moviegoer < ActiveRecord::Base
 
   # Section 7.3 Figure 7.14(c)
   # http://pastebin.com/WHuX2LcV
-  #has_many :reviews
+  has_many :reviews
 
   # Section 7.2 Figure 7.9 (bottom)
   # http://pastebin.com/LyD2qxRA

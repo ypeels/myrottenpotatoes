@@ -66,3 +66,6 @@ gem 'ruby-tmdb'
 
 # Section 7.2 paragraph after Figure 7.10
 gem 'omniauth-twitter'
+
+# Section 7.3 requirement (not in book)
+gem 'hashie'

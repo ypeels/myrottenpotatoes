@@ -9,10 +9,9 @@ class ApplicationController < ActionController::Base
   # unless :only or :except are specified
   before_filter :set_current_user
   protected # prevents method from being invoked by a route
-  def set_current_user
-  
+  def set_current_user  
     # we exploit the fact that find_by_id(nil) returns nil    
-    @current_user ||= Moviegoer.find_by_id(session[:user_id]) # fine as is - i think i confused myself
+    @current_user ||= Moviegoer.find_by_id(session[:user_id]) # fine as is - i think i confused myself b/w id, uid, and :user_id
     
     # login_path(.) argument - my extension of the 10/26/2012 14:15:44 erratum
     # current limitation: always requires a user to be logged in (if you log out, it will request you to log in again?)
