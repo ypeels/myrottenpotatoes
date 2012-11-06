@@ -64,5 +64,5 @@ end
 # actually, it's included in the bookware? meh
 gem 'ruby-tmdb'
 
-
-
+# Section 7.2 paragraph after Figure 7.10
+gem 'omniauth-twitter'

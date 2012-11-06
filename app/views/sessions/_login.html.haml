@@ -1,4 +1,14 @@
 -# who knows if this is right
 -# partial alluded to vaguely
-app/views/sessions/_login.html.haml - no idea what i'm doing
-= @current_user
+-#app/views/sessions/_login.html.haml - no idea what i'm doing
+-#= @current_user
+
+-#login
+- if @current_user
+  %p.welcome  Welcome, #{@current_user.name}!
+  = link_to 'Log Out', logout_path
+- else
+  -# argument to login_path(.) from errata
+  %p.login= link_to 'Log in with your Twitter account', login_path(:provider => 'twitter')
+  -#(:provider => 'twitter')
+

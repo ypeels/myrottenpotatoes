@@ -16,6 +16,9 @@ Myrottenpotatoes::Application.routes.draw do
   match 'auth/:provider/callback' => 'sessions#create',:as => 'login'
   match 'logout' => 'sessions#destroy'
 
+  
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

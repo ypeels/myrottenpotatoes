@@ -52,5 +52,16 @@ echo login partial with appropriate message?
 echo "# Section 7.2 Figure 7.10 caption"
 gedit app/views/layouts/application.html.haml
 
+echo
+echo Add OmniAuth gem to Gemfile
+echo "# Section 7.2 paragraph after Figure 7.10"
+gedit Gemfile
+
+echo
+echo bundle install --without production
+bundle install --without production
+
+
+
 	
 popd
