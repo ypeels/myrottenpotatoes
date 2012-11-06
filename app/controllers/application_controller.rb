@@ -12,9 +12,7 @@ class ApplicationController < ActionController::Base
   def set_current_user
   
     # we exploit the fact that find_by_id(nil) returns nil    
-    # another erratum! found this one all by myself - Moviegoer.id field doesn't match! loops infinitely
-    #@current_user ||= Moviegoer.find_by_id(session[:user_id])
-    @current_user ||= Moviegoer.find_by_uid(session[:user_id])
+    @current_user ||= Moviegoer.find_by_id(session[:user_id]) # fine as is - i think i confused myself
     
     # login_path(.) argument - my extension of the 10/26/2012 14:15:44 erratum
     # current limitation: always requires a user to be logged in (if you log out, it will request you to log in again?)
