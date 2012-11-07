@@ -6,6 +6,10 @@ class Moviegoer < ActiveRecord::Base
   # http://pastebin.com/WHuX2LcV
   has_many :reviews
 
+  # Section 7.4 Figure 7.17
+  # http://pastebin.com/LwQAgaw7
+  has_many :movies, :through => :reviews
+
   # Section 7.2 Figure 7.9 (bottom)
   # http://pastebin.com/LyD2qxRA
   include ActiveModel::MassAssignmentSecurity
