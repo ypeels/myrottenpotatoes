@@ -1,0 +1,14 @@
+-# Section 7.5 Figure 7.19(b)
+-# http://pastebin.com/YSQsXt47
+-# caught an erratum - book had @movie.name
+%h1 New Review for #{@movie.title}
+
+-# erratum or under construction?
+-# the original line results in Routing Error No route matches {:action=>"show", :controller=>"reviews", :movie_id=>#<Movie id: 1,...
+-# hacked it for now, by analogy with app/views/movies/new.html.haml
+-# not enough confidence to submit as an erratum
+-#= form_tag movie_reviews_path(@movie) do
+= form_tag movie_reviews_path, :method => :post do
+  %label How many potatoes:
+  = select_tag 'review[potatoes]', options_for_select(1..5)
+  = submit_tag 'Create Review'

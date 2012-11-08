@@ -8,7 +8,13 @@ Myrottenpotatoes::Application.routes.draw do
 
   # Section 4.1
   # http://pastebin.com/piLDY4eM
-  resources :movies
+  resources :movies do
+
+    # Section 7.5 beginning
+    # http://pastebin.com/cmB747Ta
+    resources :reviews  # owned by :movies
+
+  end
   root :to => redirect('/movies')
 
   # Section 7.2 Figure 7.10(a)

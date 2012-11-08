@@ -18,7 +18,7 @@
 
 -#= link_to 'Back to movie list', movies_path
 
--# Section 4.8
+-# Section 4.8 beginning
 -# http://pastebin.com/ZD1y6TYc
 = link_to 'Edit info', edit_movie_path(@movie)
 
@@ -31,7 +31,11 @@
 -# http://pastebin.com/mTXuE5up
 = button_to 'Delete', movie_path(@movie), :method => :delete, :confirm => 'Are you sure?'
 
--# http://pastebin.com/ZD1y6TYc again
+-# Section 7.6 end
+-# http://pastebin.com/RfYpnTKx
+= link_to 'Add Review', new_movie_review_path(@movie)
+
+-# Section 4.8 beginning again: http://pastebin.com/ZD1y6TYc
 = link_to 'Back to movie list', movies_path
 
 
