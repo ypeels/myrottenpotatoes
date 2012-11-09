@@ -19,17 +19,40 @@ class ReviewsController < ApplicationController
 
   public
   def new
-    @review = @movie.reviews.build
+   # CS169.2x Lecture 2 slide 9
+    # movie_id because of nested route
+    @movie = Movie.find(params[:movie_id])
+    
+    # new sets movie_id foreign key automatically
+    @review ||= @movie.reviews.new    
+    
+    #@review = @movie.reviews.build
   end
   def create
-    # since moviegoer_id is a protected attribute [in the Review model] that won't get
-    # assigned by the mass-assignment from params[:review], we set it
-    # by using the << method on the association.  We could also
-    # set it manually with [@]review.moviegoer = @current_user.
-    @current_user.reviews << @movie.reviews.build(params[:review])
+  
+   # CS169.2x Lecture 2 slide 8
+    # movie_id because of nested route
+    @movie = Movie.find(params[:movie_id])
     
-    # winging it - by analogy with MoviesController#create()
-    redirect_to movie_reviews_path(@movie.id)
+    # build sets the movie_id foreign key automatically
+    @review = @movie.reviews.build(params[:review])
+    
+    if @review.save
+      flash[:notice] = 'Review successfully created.'
+      redirect_to movie_reviews_path(@movie)
+    else
+      render :action => 'new'
+    end
+    
+  
+    ## since moviegoer_id is a protected attribute [in the Review model] that won't get
+    ## assigned by the mass-assignment from params[:review], we set it
+    ## by using the << method on the association.  We could also
+    ## set it manually with [@]review.moviegoer = @current_user.
+    #@current_user.reviews << @movie.reviews.build(params[:review])
+    #
+    ## winging it - by analogy with MoviesController#create()
+    #redirect_to movie_reviews_path(@movie)
     
   end
   

@@ -3,12 +3,22 @@
 -# caught an erratum - book had @movie.name
 %h1 New Review for #{@movie.title}
 
+
+-# CS169.2x Lecture 2 Slide 10? still seems broken - i guess this was for reviews/edit.html.haml, not new.html.haml...
+-#= form_tag movie_review_path(@movie, @review), :method => put do
+
+
 -# erratum or under construction?
 -# the original line results in Routing Error No route matches {:action=>"show", :controller=>"reviews", :movie_id=>#<Movie id: 1,...
 -# hacked it for now, by analogy with app/views/movies/new.html.haml
 -# not enough confidence to submit as an erratum
 -#= form_tag movie_reviews_path(@movie) do
 = form_tag movie_reviews_path, :method => :post do
+  
+  -# back to Section 7.5 Figure 7.19(b)
   %label How many potatoes:
   = select_tag 'review[potatoes]', options_for_select(1..5)
   = submit_tag 'Create Review'
+
+-# CS169.2x Lecture 2 Slide 10 again
+= link_to 'All reviews for this movie', movie_reviews_path(@movie)
