@@ -11,7 +11,12 @@ class MoviesController < ApplicationController
   def show
     id = params[:id] # retrieve movie ID from URI route
     @movie = Movie.find(id) # look up movie by unique ID
-    # will render app/views/movies/show.html.haml by default
+    
+    # Section 11.6 Figure 11.12(b) - modified for new partial file name
+    # http://pastebin.com/ajk95r8D
+    render :partial => 'movie_ajax', :object => @movie and return if request.xhr?
+    
+    # will render app/views/movies/show.html.haml by default    
   end
 
   # Section 4.6 stub function

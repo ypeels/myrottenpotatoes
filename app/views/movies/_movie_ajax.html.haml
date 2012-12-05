@@ -1,0 +1,9 @@
+-# My addition, since my database doesn't contain descriptions
+%h1= movie_ajax.title + ' - ' + movie_ajax.release_date.year.to_s
+
+-# Section 11.6 Figure 11.12(a) - modified for new file name
+-# http://pastebin.com/TUcBd0WD
+%p= movie_ajax.description
+
+= link_to 'Edit Movie', edit_movie_path(movie_ajax)
+= link_to 'Close', '', {:id => 'closeLink'}
