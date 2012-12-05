@@ -56,7 +56,7 @@ RP = {
     hideMovieInfo: function() {
         $('#movieInfo').hide(); 
         return(false);
-    },
+    }// , // was this a syntax error??
 	
 }
 $(RP.setup);       // when document ready, run setup code
