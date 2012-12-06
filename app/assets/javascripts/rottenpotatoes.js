@@ -38,9 +38,9 @@ RP = {
                 url: $(this).attr('href'),
                 timeout: 5000,
                 success: RP.showMovieInfo,
-                error: function() { alert('Error!'); }
+                error: function() { alert('Error in RP.getMovieInfo!'); }
                });
-        return(false);
+        return(false); // return(true) triggers error callback above
     },
     showMovieInfo: function(data) {
         // center a floater 1/2 as wide and 1/4 as tall as screen
@@ -51,11 +51,11 @@ RP = {
             show();
         // make the Close link in the hidden element work
         $('#closeLink').click(RP.hideMovieInfo);
-        return(false);  // prevent default link action
+        return(false);  // prevent default link action // actually, this return(true) has no effect!?
     },
     hideMovieInfo: function() {
         $('#movieInfo').hide(); 
-        return(false);
+        return(false); // return(true) causes page reload [no reload on return(false)]
     }// , // was this a syntax error??
 	
 }
